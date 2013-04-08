@@ -1,3 +1,9 @@
+gnome-terminal (3.8.0.1-1blankon1.1) suroboyo; urgency=low
+
+  * add debian/patches/99-revert-menu.patch
+
+ -- Muhammad Abdul Majid <tuyul.det@gmail.com>  Mon, 08 Apr 2013 23:22:44 +0000
+
 gnome-terminal (3.8.0.1-1blankon1) suroboyo; urgency=low
 
   * Remove debian/patches/10_crash_profiles.patch.
