@@ -1,10 +1,10 @@
-diff -Naur gnome-terminal-3.8.0.orig/gnome-terminal.desktop.in.in gnome-terminal-3.8.0.1/gnome-terminal.desktop.in.in
---- gnome-terminal-3.8.0.orig/gnome-terminal.desktop.in.in	2013-04-08 23:16:05.799103591 +0000
-+++ gnome-terminal-3.8.0.1/gnome-terminal.desktop.in.in	2013-03-31 13:54:37.000000000 +0000
+diff -Naur gnome-terminal-3.8.0.1.orig/gnome-terminal.desktop.in.in gnome-terminal-3.8.0.1/gnome-terminal.desktop.in.in
+--- gnome-terminal-3.8.0.1.orig/gnome-terminal.desktop.in.in	2013-04-09 00:20:45.903249676 +0000
++++ gnome-terminal-3.8.0.1/gnome-terminal.desktop.in.in	2013-04-09 00:21:39.355251688 +0000
 @@ -11,5 +11,5 @@
  X-GNOME-Bugzilla-Product=gnome-terminal
  X-GNOME-Bugzilla-Component=BugBuddyBugs
  X-GNOME-Bugzilla-Version=@VERSION@
--Categories=Accessories;
-+Categories=GNOME;GTK;Utility;System;TerminalEmulator;
+-Categories=GNOME;GTK;Utility;System;TerminalEmulator;
++Categories=Accessories;
  StartupNotify=true
