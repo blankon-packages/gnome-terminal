@@ -1,3 +1,10 @@
+gnome-terminal (3.8.0.1-1blankon2.1) suroboyo; urgency=low
+
+  * bump debian/patches/01_onlyshowin.patch
+  * apply debian/patches/99-revert-menu.patch
+
+ -- mijortsa <azis.astrojim@surabaya.di.blankon.in>  Thu, 11 Apr 2013 16:28:17 +0700
+
 gnome-terminal (3.8.0.1-1blankon2) suroboyo; urgency=low
 
   * change remove debian/patches/99-revert-menu.patch
