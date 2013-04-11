@@ -1,7 +1,6 @@
 gnome-terminal (3.8.0.1-1blankon2) suroboyo; urgency=low
 
   * change remove debian/patches/99-revert-menu.patch
-  * changes debian/patches/01_onlyshowin.patch : System to Accesories
 
  -- Muhammad Abdul Majid <tuyul.det@gmail.com>  Tue, 09 Apr 2013 00:28:59 +0000
 
