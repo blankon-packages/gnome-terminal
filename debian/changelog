@@ -1,8 +1,8 @@
-gnome-terminal (3.10.0-0blankon1) suroboyo; urgency=low
+gnome-terminal (3.10.0-1blankon1) suroboyo; urgency=low
 
   * New upstream release
 
- -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in> Sun, 29 Sep 2013 16:24:13 +0700
+ -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Sun, 29 Sep 2013 16:30:36 +0700
 
 gnome-terminal (3.8.3-1blankon1) suroboyo; urgency=low
 
