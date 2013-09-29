@@ -1,6 +1,7 @@
-gnome-terminal (3.10.0-1blankon1) suroboyo; urgency=low
+gnome-terminal (3.10.0-0blankon1) suroboyo; urgency=low
 
-  * New upstream release
+  * New upstream releases
+  * Drop : 99-revert-menu.patch
 
  -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Sun, 29 Sep 2013 16:30:36 +0700
 
