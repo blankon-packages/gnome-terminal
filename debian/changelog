@@ -1,8 +1,94 @@
-gnome-terminal (3.12.0-1blankon1) tambora; urgency=medium
+gnome-terminal (3.14.2-0blankon1) tambora; urgency=medium
 
-  * New Upstream release (impor to tambora)
+  * New upstream release
+  * Merge with Ubuntu
 
- -- Aan Yustian <aftian@di.blankon.in>  Fri, 28 Mar 2014 12:46:15 +0000
+ -- Mahyuddin <yudi.al@gmail.com>  Fri, 10 Apr 2015 16:02:51 +0700
+
+gnome-terminal (3.14.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Pedro Beja <althaser@gmail.com>  Fri, 17 Oct 2014 16:47:35 +0100
+
+gnome-terminal (3.14.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump build-depencencies according to configure.ac changes:
+    + libgtk-3-dev (>= 3.10.0),
+    + libvte-2.91-dev (>= 0.38.0),
+  * Drop libgtk2.0-dev build-dependency.
+  * Make debian/patches/01_onlyshowin.patch apply again.
+  * Have quilt refresh remaining patches.
+  * Upload to unstable.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 27 Sep 2014 01:16:35 +0200
+
+gnome-terminal (3.13.90-1) experimental; urgency=medium
+
+  [ Simon McVittie ]
+  * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
+    a dependency from, e.g., steam:i386 (Closes: #698957)
+
+  [ Sjoerd Simons ]
+  * New upstream release
+  * Add valac (>= 0.24) to b-d
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 11 Sep 2014 21:00:46 +0200
+
+gnome-terminal (3.12.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * When we ask the system theme how to draw a TerminalScreen widget,
+    if it answers "black text on a black background" (like the built-in
+    fallback theme in Gtk < 3.14, "Raleigh"), instead draw black text on
+    a white background like the GNOME default theme "Adwaita" does.
+    (Closes: #683744)
+  * Tell dh_makeshlibs that the libterminal-nautilus.so plugin is not
+    a shared library (workaround for #204975)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 02 Aug 2014 17:33:44 +0100
+
+gnome-terminal (3.12.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump libvte-2.90-dev build-dependency to >= 1:0.36.3
+    - as required by configure.ac
+  * Bump Standards-Version to 3.9.5
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
+
+gnome-terminal (3.12.2-3) unstable; urgency=medium
+
+  * Explicitly disable search provider on non-linux.
+    Thanks to Pino Toscano.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:54:59 +0200
+
+gnome-terminal (3.12.2-2) unstable; urgency=medium
+
+  The "Why?" release.
+
+  * Make gnome-shell build-dependency linux-any (Closes: #749888)
+  * Only install gnome-shell search provider ini file on linux.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:05:33 +0200
+
+gnome-terminal (3.12.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump build-dependencies according to configure.ac changes:
+    - libvte-2.90-dev >= 1:0.36.1
+  * Drop debian/patches/appmenu-fix-action-parameter.patch
+    - now included in upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 18 May 2014 22:27:40 +0200
+
+gnome-terminal (3.12.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 26 Apr 2014 10:30:29 +0200
 
 gnome-terminal (3.12.0-1) experimental; urgency=medium
 
@@ -42,24 +128,27 @@ gnome-terminal (3.11.3-1) experimental; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Feb 2014 20:43:28 +0100
 
-gnome-terminal (3.10.1-0blankon1) suroboyo; urgency=low
+gnome-terminal (3.10.1-1) unstable; urgency=low
 
-  * New Upstream Release 
+  * New upstream release.
+  * Bump build-dependency on vt3 to >= 1:0.34.8.
+  * Refresh patches.
 
- -- Rahman Yusri Aftian <aftian@di.blankon.in>  Tue, 15 Oct 2013 18:06:22 +0700
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 23 Oct 2013 18:31:39 +0200
 
-gnome-terminal (3.10.0-0blankon1) suroboyo; urgency=low
+gnome-terminal (3.8.4-1) unstable; urgency=low
 
-  * New upstream releases
-  * Drop : 99-revert-menu.patch
+  [ Jeremy Bicha ]
+  * debian/rules:
+    - Build with --enable-distro-packaging to not override
+      environment variables
+  * debian/patches/git-add-quit.patch:
+    - Backport patch to add Quit to app menu
 
- -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Sun, 29 Sep 2013 16:30:36 +0700
+  [ Michael Biebl ]
+  * New upstream release.
 
-gnome-terminal (3.8.3-1blankon1) suroboyo; urgency=low
-
-  * New upstream release 
-
- -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Wed, 12 Jun 2013 21:47:20 +0700
+ -- Michael Biebl <biebl@debian.org>  Thu, 29 Aug 2013 13:16:40 +0200
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 
@@ -87,25 +176,6 @@ gnome-terminal (3.8.2-1) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Wed, 05 Jun 2013 22:23:26 +0200
 
-gnome-terminal (3.8.0.1-1blankon2.1) suroboyo; urgency=low
-
-  * bump debian/patches/01_onlyshowin.patch
-  * apply debian/patches/99-revert-menu.patch
-
- -- mijortsa <azis.astrojim@surabaya.di.blankon.in>  Thu, 11 Apr 2013 16:28:17 +0700
-
-gnome-terminal (3.8.0.1-1blankon2) suroboyo; urgency=low
-
-  * change remove debian/patches/99-revert-menu.patch
-
- -- Muhammad Abdul Majid <tuyul.det@gmail.com>  Tue, 09 Apr 2013 00:28:59 +0000
-
-gnome-terminal (3.8.0.1-1blankon1) suroboyo; urgency=low
-
-  * Remove debian/patches/10_crash_profiles.patch.
-
- -- Aris Febrianto <ariesfebrianto@gmail.com>  Tue, 02 Apr 2013 01:21:47 +0700
-
 gnome-terminal (3.8.0.1-1) experimental; urgency=low
 
   [ Jeremy Bicha ]
@@ -117,12 +187,6 @@ gnome-terminal (3.8.0.1-1) experimental; urgency=low
       - Removed, no longer needed.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 01 Apr 2013 13:10:38 +0200
-
-gnome-terminal (3.8.0-1blankon1) suroboyo; urgency=low
-
-  * New upstream release
-
- -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Sun, 31 Mar 2013 13:34:31 +0700
 
 gnome-terminal (3.8.0-1) experimental; urgency=low
 
@@ -150,17 +214,21 @@ gnome-terminal (3.8.0-1) experimental; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 30 Mar 2013 20:40:18 +0100
 
-gnome-terminal (3.6.1-1blankon1) suroboyo; urgency=low
-
-  * Upload to suroboyo 
-
- -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 16 Dec 2012 19:22:33 +0700
-
 gnome-terminal (3.6.1-1) experimental; urgency=low
 
   * New upstream release
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 20 Oct 2012 22:56:22 +0200
+
+gnome-terminal (3.4.1.1-2) unstable; urgency=low
+
+  * Team upload
+  * Recommend dbus-x11: gnome-terminal's default usage requires a
+    D-Bus session, and dbus-x11 is the recommended way to get one of those
+    (Closes: #691177; related to #631968)
+  * If unable to connect to D-Bus, warn before we exit 1 (Closes: #691178)
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 24 Oct 2012 10:56:17 +0100
 
 gnome-terminal (3.4.1.1-1) unstable; urgency=low
 
@@ -1986,3 +2054,4 @@ gnome-core (0.13-1) unstable; urgency=low
   * Initial Release.
 
  -- Jim Pick <jim@jimpick.com>  Mon, 16 Mar 1998 15:27:43 -0800
+
