@@ -1,3 +1,9 @@
+gnome-terminal (3.14.2-0blankon2) tambora; urgency=medium
+
+  * Rebuild 
+
+ -- Mahyuddin <yudi.al@gmail.com>  Sat, 11 Apr 2015 13:43:51 +0700
+
 gnome-terminal (3.14.2-0blankon1) tambora; urgency=medium
 
   * New upstream release
