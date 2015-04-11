@@ -32,7 +32,7 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
 
 Package: gnome-terminal
-Architecture: any
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends: ${shlibs:Depends},
          ${misc:Depends},
