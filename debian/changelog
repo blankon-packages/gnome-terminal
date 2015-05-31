@@ -1,15 +1,64 @@
-gnome-terminal (3.14.2-0blankon2) tambora; urgency=medium
-
-  * Rebuild 
-
- -- Mahyuddin <yudi.al@gmail.com>  Sat, 11 Apr 2015 13:43:51 +0700
-
-gnome-terminal (3.14.2-0blankon1) tambora; urgency=medium
+gnome-terminal (3.16.1-0blankon1) tambora; urgency=medium
 
   * New upstream release
-  * Merge with Ubuntu
+  * Import from PPA GNOME3-TEAM
 
- -- Mahyuddin <yudi.al@gmail.com>  Fri, 10 Apr 2015 16:02:51 +0700
+ -- Mahyuddin <yudi.al@gmail.com>  Sun, 31 May 2015 16:40:02 +0700
+
+gnome-terminal (3.16.1-0ubuntu1~vivid1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Tim Lunn <tim@feathertop.org>  Sat, 18 Apr 2015 13:03:27 +1000
+
+gnome-terminal (3.16.0-0ubuntu1~vivid1) vivid; urgency=medium
+
+  * New upstream release
+  * debian/control.in:
+    - Bump build-deps libvte-2.91-dev (>= 0.40.0) and valac (>= 0.26)
+  * d/p/0001-Restore-transparency.patch: Refreshed
+
+ -- Tim Lunn <tim@feathertop.org>  Fri, 27 Mar 2015 08:24:53 +1100
+
+gnome-terminal (3.14.2-0ubuntu2) vivid; urgency=medium
+
+  * Change appdata-tools b-dep to appstream-util
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Sat, 14 Feb 2015 08:25:21 +1100
+
+gnome-terminal (3.14.2-0ubuntu1) vivid; urgency=medium
+
+  * Pass the terminal window in all code paths that launch the profile editor,
+    to avoid dereferencing the wrong thing. (LP: #1401192)
+  * New upstream translation release.
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 15 Dec 2014 17:00:27 +0000
+
+gnome-terminal (3.14.1-1ubuntu1) vivid; urgency=medium
+
+  [ Iain Lane ]
+  * Merge with Debian, remaining changes:
+    - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
+      item.
+    - debian/patches/52_support_apturl.patch: Support apt: urls.
+    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
+      URLs.
+    - debian/patches/0001-Restore-transparency.patch: Restore transparency
+      support, dropped upstream. Patch from Debarishi Ray, modified by Iain
+      Lane to support a 'theme' default value.
+    - Add 61_cwd_fallback.patch: Provide fallback for reading current
+      directory if OSC 7 fails.
+  * debian/patches/0001-window-Make-the-drawing-robust-across-all-themes.patch:
+    Make sure the window always draws a background, even when transparency is
+    on.
+  * Disable shell provider, we don't want to build-dep on gnome-shell.
+
+  [ Tim Lunn ]
+  * Add gnome-shell_search_provider.patch: provide a local copy of the dbus
+    interface so can build shell search provider without depending on
+    gnome-shell which is in universe (LP: #1390224)
+
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 14 Nov 2014 16:39:19 +0000
 
 gnome-terminal (3.14.1-1) unstable; urgency=medium
 
@@ -64,6 +113,12 @@ gnome-terminal (3.12.3-1) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
 
+gnome-terminal (3.12.3-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release 3.12.3.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 06 Nov 2014 10:33:32 +0000
+
 gnome-terminal (3.12.2-3) unstable; urgency=medium
 
   * Explicitly disable search provider on non-linux.
@@ -89,6 +144,52 @@ gnome-terminal (3.12.2-1) unstable; urgency=medium
     - now included in upstream release.
 
  -- Andreas Henriksson <andreas@fatal.se>  Sun, 18 May 2014 22:27:40 +0200
+
+gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
+
+  [ Iain Lane ]
+  * NOTE: This version changes behaviour around the "Switch to tab" keyboard
+    shortcuts. They are now active all the time, whereas previously they were
+    only active when you had a corresponding number of tabs open. If you need
+    to send these keys to your terminal, clear the shortcuts in the
+    preferences dialog.
+  * Drop 03_add_keywords.desktop: Not useful any more.
+  * Drop 20_add_alt_screen_toggle_ui.patch: Too much effort to maintain, not
+    deemed important enough to keep.
+  * Resynchronise with Debian, remaining changes:
+    - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
+      item.
+    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
+      URLs.
+  * Disable shell provider, we don't want to build-dep on gnome-shell.
+  * Bump build-dependencies according to configure.ac:
+    - intltool 0.50.0
+    - vte 0.36.0
+    - glib 2.39.2
+  * Make debian/patches/10_kfreebsd-f_dupfd_cloexec.patch apply again.
+  * Add build-dependency on libnautilus-extension-dev
+  * Add new patch debian/patches/nautilus-x11.patch
+    - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
+  * Include autoreconf.mk cdbs snippet and build-depend on dh-autoreconf
+  * Install new files in gnome-terminal
+    - nautilus extension
+  * debian/patches/0001-Restore-transparency.patch: Patch from Debarishi Ray
+    to re-add support for transparent terminals. Updated to support loading a
+    transparency value from the theme, if it provides one and to migrate the
+    settings from GConf.
+
+  [ Jeremy Bicha ]
+  * debian/rules:
+    - Build with --enable-distro-packaging to not override Ubuntu
+      environment variables
+  * debian/patches/52_support_apturl.patch:
+    - Support apt: URIs (LP: #217611)
+
+  [ Martin Pitt ]
+  * Add 61_cwd_fallback.patch: Provide fallback for reading current directory
+    if OSC 7 fails. (LP: #1132700)
+
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 05 Nov 2014 15:55:30 +0000
 
 gnome-terminal (3.12.0-2) unstable; urgency=medium
 
@@ -387,7 +488,7 @@ gnome-terminal (2.26.3.1-1) unstable; urgency=low
 
  -- Luca Falavigna <dktrkranz@debian.org>  Tue, 15 Sep 2009 00:34:09 +0200
 
-gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
+gnome-terminal (2.26.2-3) vivid; urgency=low
 
   * debian/watch: don't uupdate.
   * Add descriptions and links to patch headers.
@@ -738,7 +839,7 @@ gnome-terminal (2.12.0-1) experimental; urgency=low
 
  -- Loic Minier <lool@dooz.org>  Sat, 29 Oct 2005 20:44:07 +0200
 
-gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
+gnome-terminal (2.10.0-3) vivid; urgency=low
 
   [ Josselin Mouette ]
   * Don't overwrite DEB_CONFIGURE_SCRIPT_ENV completely.
@@ -2060,4 +2161,3 @@ gnome-core (0.13-1) unstable; urgency=low
   * Initial Release.
 
  -- Jim Pick <jim@jimpick.com>  Mon, 16 Mar 1998 15:27:43 -0800
-
