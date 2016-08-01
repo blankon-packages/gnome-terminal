@@ -1,64 +1,152 @@
-gnome-terminal (3.16.1-0blankon1) tambora; urgency=medium
+gnome-terminal (3.20.2-2blankon1) tambora; urgency=medium
 
+  * Rebuild
+
+ -- Syai Mif <syaimif@localhost>  Mon, 01 Aug 2016 13:39:01 +0700
+
+gnome-terminal (3.20.2-2) unstable; urgency=medium
+
+  * Add debian/patches/git_notebook-avoid-crash-on-tab-DND.patch
+    from upstream git. (Closes: #825818)
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 25 Jul 2016 20:47:13 +0200
+
+gnome-terminal (3.20.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop Build-Depends on gnome-doc-utils, no longer needed.
+  * Refresh patches.
+  * Use dh-exec to install the Linux specific gnome-shell search provider ini
+    file.
+  * Bump Standards-Version to 3.9.8.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 May 2016 17:04:39 +0200
+
+gnome-terminal (3.20.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 22:43:10 +0200
+
+gnome-terminal (3.20.1-1) experimental; urgency=medium
+
+  * Team upload.
   * New upstream release
-  * Import from PPA GNOME3-TEAM
+    - updated translations
+  * Update patch for #819712 to make the window fill the screen
+    properly when maximized, and when snapped to left/right half of
+    screen in GNOME Shell (the latter doesn't work in Wayland yet)
+  * Add a systemd --user service for the D-Bus session service,
+    which is used if dbus-user-session is installed
 
- -- Mahyuddin <yudi.al@gmail.com>  Sun, 31 May 2015 16:40:02 +0700
+ -- Simon McVittie <smcv@debian.org>  Fri, 15 Apr 2016 18:01:01 +0100
 
-gnome-terminal (3.16.1-0ubuntu1~vivid1) vivid; urgency=medium
+gnome-terminal (3.20.0-3) experimental; urgency=medium
 
-  * New upstream release
+  * Team upload.
+  * Improve patch for #819712 to account for client-side decorations
+    under Wayland or with GTK_CSD=1 under X11 (Closes: #819732)
 
- -- Tim Lunn <tim@feathertop.org>  Sat, 18 Apr 2015 13:03:27 +1000
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Apr 2016 10:04:39 +0100
 
-gnome-terminal (3.16.0-0ubuntu1~vivid1) vivid; urgency=medium
+gnome-terminal (3.20.0-2) experimental; urgency=medium
 
-  * New upstream release
-  * debian/control.in:
-    - Bump build-deps libvte-2.91-dev (>= 0.40.0) and valac (>= 0.26)
-  * d/p/0001-Restore-transparency.patch: Refreshed
+  * Team upload.
+  * Add patches restoring the ability for the terminal to resize itself
+    (Closes: #819712)
+  * Depend on vte from experimental to enforce having a vte version that
+    was compiled against Gtk 3.20, avoiding miscounting the padding and
+    sizing windows 1 column x 1 row too small
 
- -- Tim Lunn <tim@feathertop.org>  Fri, 27 Mar 2015 08:24:53 +1100
+ -- Simon McVittie <smcv@debian.org>  Fri, 01 Apr 2016 09:34:13 +0100
 
-gnome-terminal (3.14.2-0ubuntu2) vivid; urgency=medium
+gnome-terminal (3.20.0-1) unstable; urgency=medium
 
-  * Change appdata-tools b-dep to appstream-util
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libgtk-3-dev to >= 3.12.0
+    - bump libvte-2.91-dev to >= 0.44.0
+    - add libpcre2-dev (>= 10.00)
+  * Fix Don-t-allow-the-theme-to-set-black-on-black.patch to apply again.
+    Note: this patch could possibly be dropped since raleigh is no longer
+          the default theme.
+  * Have quilt refresh remaining patches.
 
- -- Jackson Doak <noskcaj@ubuntu.com>  Sat, 14 Feb 2015 08:25:21 +1100
+ -- Andreas Henriksson <andreas@fatal.se>  Fri, 25 Mar 2016 09:48:50 +0100
 
-gnome-terminal (3.14.2-0ubuntu1) vivid; urgency=medium
+gnome-terminal (3.18.3-1) unstable; urgency=medium
 
-  * Pass the terminal window in all code paths that launch the profile editor,
-    to avoid dereferencing the wrong thing. (LP: #1401192)
-  * New upstream translation release.
+  * New upstream release.
+  * Refresh patches.
+  * Bump Standards-Version to 3.9.7.
 
- -- Iain Lane <iain.lane@canonical.com>  Mon, 15 Dec 2014 17:00:27 +0000
+ -- Michael Biebl <biebl@debian.org>  Sun, 06 Mar 2016 22:18:26 +0100
 
-gnome-terminal (3.14.1-1ubuntu1) vivid; urgency=medium
+gnome-terminal (3.18.2-1) unstable; urgency=medium
 
-  [ Iain Lane ]
-  * Merge with Debian, remaining changes:
-    - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
-      item.
-    - debian/patches/52_support_apturl.patch: Support apt: urls.
-    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
-      URLs.
-    - debian/patches/0001-Restore-transparency.patch: Restore transparency
-      support, dropped upstream. Patch from Debarishi Ray, modified by Iain
-      Lane to support a 'theme' default value.
-    - Add 61_cwd_fallback.patch: Provide fallback for reading current
-      directory if OSC 7 fails.
-  * debian/patches/0001-window-Make-the-drawing-robust-across-all-themes.patch:
-    Make sure the window always draws a background, even when transparency is
-    on.
-  * Disable shell provider, we don't want to build-dep on gnome-shell.
+  * New upstream release.
 
-  [ Tim Lunn ]
-  * Add gnome-shell_search_provider.patch: provide a local copy of the dbus
-    interface so can build shell search provider without depending on
-    gnome-shell which is in universe (LP: #1390224)
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 Nov 2015 15:52:44 +0100
 
- -- Iain Lane <iain.lane@canonical.com>  Fri, 14 Nov 2014 16:39:19 +0000
+gnome-terminal (3.18.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Build-Depends on libvte-2.91-dev to (>= 0.42.1) as per configure.ac.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 14 Oct 2015 17:30:20 +0200
+
+gnome-terminal (3.18.0-1) unstable; urgency=medium
+
+  [ Fabian Greffrath ]
+  * Add Conflicts and Replaces against the nautilus-open-terminal
+    package (Closes: #766919). The gnome-terminal package provides
+    the exact same functionality and removal of the former package
+    has been requested (see #789900).
+
+  [ Josselin Mouette ]
+  * Remove Debian menu entry.
+
+  [ Pedro Beja ]
+  * Remove obsolete flags --disable-factory, --title and --usage from manpage. 
+
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libglib2.0-dev to >= 2.42.0
+    - bump libvte-2.91-dev to >= 0.42.0
+    - bump valac to >= 0.26
+  * Have quilt refresh patches to make them apply cleanly.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 22 Sep 2015 17:52:00 +0200
+
+gnome-terminal (3.16.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop obsolete Replaces from pre-wheezy.
+  * Bump Build-Depends on libvte-2.91-dev to (>= 0.40.2) as per configure.ac.
+  * Refresh patches.
+  * Bump debhelper compatibility level to 9.
+  * Add Homepage: field.
+  * Bump Standards-Version to 3.9.6.
+  * Provide fallback for reading current directory if OSC 7 fails. In Debian
+    there is no mechanism (yet) to source scripts for non-login interactive
+    shells so we can't rely on /etc/profile.d/vte*.sh but instead fallback to
+    reading /proc to determine the working directory of the current tab.
+    (Closes: #706065)
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 31 May 2015 19:10:05 +0200
+
+gnome-terminal (3.14.2-1) unstable; urgency=medium
+
+  [ Pedro Beja ]
+  * New upstream release.
+
+  [ Andreas Henriksson ]
+  * Add patch from upstream 3.16 branch for now
+    - ‘debian/patches/git_remove_appdata_validation.patch’
+  * Drop appdata-tools build-dependency
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 19 May 2015 16:35:34 +0200
 
 gnome-terminal (3.14.1-1) unstable; urgency=medium
 
@@ -113,12 +201,6 @@ gnome-terminal (3.12.3-1) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
 
-gnome-terminal (3.12.3-0ubuntu1) vivid; urgency=medium
-
-  * New upstream release 3.12.3.
-
- -- Iain Lane <iain.lane@canonical.com>  Thu, 06 Nov 2014 10:33:32 +0000
-
 gnome-terminal (3.12.2-3) unstable; urgency=medium
 
   * Explicitly disable search provider on non-linux.
@@ -144,52 +226,6 @@ gnome-terminal (3.12.2-1) unstable; urgency=medium
     - now included in upstream release.
 
  -- Andreas Henriksson <andreas@fatal.se>  Sun, 18 May 2014 22:27:40 +0200
-
-gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
-
-  [ Iain Lane ]
-  * NOTE: This version changes behaviour around the "Switch to tab" keyboard
-    shortcuts. They are now active all the time, whereas previously they were
-    only active when you had a corresponding number of tabs open. If you need
-    to send these keys to your terminal, clear the shortcuts in the
-    preferences dialog.
-  * Drop 03_add_keywords.desktop: Not useful any more.
-  * Drop 20_add_alt_screen_toggle_ui.patch: Too much effort to maintain, not
-    deemed important enough to keep.
-  * Resynchronise with Debian, remaining changes:
-    - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
-      item.
-    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
-      URLs.
-  * Disable shell provider, we don't want to build-dep on gnome-shell.
-  * Bump build-dependencies according to configure.ac:
-    - intltool 0.50.0
-    - vte 0.36.0
-    - glib 2.39.2
-  * Make debian/patches/10_kfreebsd-f_dupfd_cloexec.patch apply again.
-  * Add build-dependency on libnautilus-extension-dev
-  * Add new patch debian/patches/nautilus-x11.patch
-    - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
-  * Include autoreconf.mk cdbs snippet and build-depend on dh-autoreconf
-  * Install new files in gnome-terminal
-    - nautilus extension
-  * debian/patches/0001-Restore-transparency.patch: Patch from Debarishi Ray
-    to re-add support for transparent terminals. Updated to support loading a
-    transparency value from the theme, if it provides one and to migrate the
-    settings from GConf.
-
-  [ Jeremy Bicha ]
-  * debian/rules:
-    - Build with --enable-distro-packaging to not override Ubuntu
-      environment variables
-  * debian/patches/52_support_apturl.patch:
-    - Support apt: URIs (LP: #217611)
-
-  [ Martin Pitt ]
-  * Add 61_cwd_fallback.patch: Provide fallback for reading current directory
-    if OSC 7 fails. (LP: #1132700)
-
- -- Iain Lane <iain.lane@canonical.com>  Wed, 05 Nov 2014 15:55:30 +0000
 
 gnome-terminal (3.12.0-2) unstable; urgency=medium
 
@@ -488,7 +524,7 @@ gnome-terminal (2.26.3.1-1) unstable; urgency=low
 
  -- Luca Falavigna <dktrkranz@debian.org>  Tue, 15 Sep 2009 00:34:09 +0200
 
-gnome-terminal (2.26.2-3) vivid; urgency=low
+gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
 
   * debian/watch: don't uupdate.
   * Add descriptions and links to patch headers.
@@ -839,7 +875,7 @@ gnome-terminal (2.12.0-1) experimental; urgency=low
 
  -- Loic Minier <lool@dooz.org>  Sat, 29 Oct 2005 20:44:07 +0200
 
-gnome-terminal (2.10.0-3) vivid; urgency=low
+gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
 
   [ Josselin Mouette ]
   * Don't overwrite DEB_CONFIGURE_SCRIPT_ENV completely.
