@@ -1,3 +1,10 @@
+gnome-terminal (3.22.2-1blankon1) uluwatu; urgency=medium
+
+  * upstream release.
+  * 
+
+ -- Hanhan Husna <matcherapy@gmail.com>  Sat, 12 Aug 2017 13:40:05 +0700
+
 gnome-terminal (3.22.0-1blankon1) tambora; urgency=medium
 
   * new upstream release 
